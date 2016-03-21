@@ -35,7 +35,14 @@ class Hands {
     }
 
     void move (Joystick* joystick) {
-        move (joystick->GetRawAxis (Joysticks::kAxisLeftY));
+        float speed = 0;
+
+        if (joystick->GetRawButton (Joysticks::kButtonLB))
+            speed = 1;
+        else if (joystick->GetRawButton (Joysticks::kButtonRB))
+            speed = -1;
+
+        move (speed);
     }
 
   protected:

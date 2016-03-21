@@ -36,18 +36,19 @@ namespace RobotHardware {
 enum PWMs {
     kHands        = 0,
     kShooter      = 1,
-    kDriveLeft    = 2,
-    kDriveRight   = 3,
-    kLifterBase   = 4,
-    kLifterAngleA = 5,
-    kLifterAngleB = 6,
+    kLifter       = 2,
+    kDriveLeft    = 3,
+    kDriveRight   = 4,
+    kHangerBase   = 5,
+    kHangerAngleA = 6,
+    kHangerAngleB = 7,
 };
 }
 
 namespace Joysticks {
 enum Axes {
-    kAxisLB       = 2,
-    kAxisRB       = 3,
+    kAxisLT       = 2,
+    kAxisRT       = 3,
     kAxisLeftX    = 0,
     kAxisLeftY    = 1,
     kAxisRightX   = 4,
@@ -59,8 +60,8 @@ enum Buttons {
     kButtonB      = 2,
     kButtonX      = 3,
     kButtonY      = 4,
-    kButtonLT     = 5,
-    kButtonRT     = 6,
+    kButtonLB     = 5,
+    kButtonRB     = 6,
     kButtonHome   = 7,
     kButtonStart  = 8,
 };

@@ -23,11 +23,11 @@
 #pragma once
 #include "core/common.h"
 
-class Lifter {
+class Hanger {
   public:
-    static Lifter* getInstance() {
-        static Lifter lifter;
-        return &lifter;
+    static Hanger* getInstance() {
+        static Hanger hanger;
+        return &hanger;
     }
 
     void move (float value) {
@@ -39,10 +39,10 @@ class Lifter {
     }
 
   protected:
-    Lifter() {
-        m_base   = new VictorSP (RobotHardware::kLifterBase);
-        m_angleA = new VictorSP (RobotHardware::kLifterAngleA);
-        m_angleB = new VictorSP (RobotHardware::kLifterAngleB);
+    Hanger() {
+        m_base   = new VictorSP (RobotHardware::kHangerBase);
+        m_angleA = new VictorSP (RobotHardware::kHangerAngleA);
+        m_angleB = new VictorSP (RobotHardware::kHangerAngleB);
     }
 
   private:

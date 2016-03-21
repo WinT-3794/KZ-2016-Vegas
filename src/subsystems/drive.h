@@ -43,7 +43,7 @@ class Drive {
     }
 
     void move (Joystick* joystick) {
-        float l = joystick->GetRawAxis (Joysticks::kAxisRB);
+        float l = joystick->GetRawAxis (Joysticks::kAxisRT);
         float x = joystick->GetRawAxis (Joysticks::kAxisLeftX);
         float y = joystick->GetRawAxis (Joysticks::kAxisLeftY);
         move (x, y, 1.0 - l, joystick->GetRawButton (Joysticks::kButtonA));
