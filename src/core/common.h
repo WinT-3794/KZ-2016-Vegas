@@ -34,14 +34,12 @@ inline float REMOVE_DEADBAND (float input) {
 
 namespace RobotHardware {
 enum PWMs {
-    kHands        = 0,
-    kShooter      = 1,
-    kLifter       = 2,
-    kDriveLeft    = 3,
-    kDriveRight   = 4,
-    kHangerBase   = 5,
-    kHangerAngleA = 6,
-    kHangerAngleB = 7,
+    kHands        = 4,
+    kShooter      = 5,
+    kDriveLeftA   = 0,
+    kDriveLeftB   = 2,
+    kDriveRightA  = 1,
+    kDriveRightB  = 3,
 };
 }
 

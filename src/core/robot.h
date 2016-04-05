@@ -24,7 +24,6 @@
 
 #include "subsystems/hands.h"
 #include "subsystems/drive.h"
-#include "subsystems/hanger.h"
 #include "subsystems/shooter.h"
 
 class Robot : public IterativeRobot {
@@ -32,7 +31,6 @@ class Robot : public IterativeRobot {
     void RobotInit() {
         m_hands   = Hands::getInstance();
         m_drive   = Drive::getInstance();
-        m_hanger  = Hanger::getInstance();
         m_shooter = Shooter::getInstance();
 
         joystick0 = new Joystick (0);
@@ -54,7 +52,6 @@ class Robot : public IterativeRobot {
     void TeleopPeriodic() {
         m_drive->move   (joystick0);
         m_hands->move   (joystick1);
-        m_hanger->move  (joystick1);
         m_shooter->move (joystick1);
     }
 
@@ -64,7 +61,6 @@ class Robot : public IterativeRobot {
   private:
     Hands* m_hands;
     Drive* m_drive;
-    Hanger* m_hanger;
     Shooter* m_shooter;
 
     Joystick* joystick0;

@@ -30,32 +30,27 @@ class Shooter {
         return &shooter;
     }
 
-    void move (float shooter, float lifter) {
-        m_lifter->Set  (REMOVE_DEADBAND (lifter));
+    void move (float shooter) {
         m_shooter->Set (REMOVE_DEADBAND (shooter));
     }
 
     void move (Joystick* joystick) {
-        float shooter = 0;
-        float lb = joystick->GetRawAxis (Joysticks::kAxisLT);
-        float rb = joystick->GetRawAxis (Joysticks::kAxisRT);
-        float lifter = joystick->GetRawAxis (Joysticks::kAxisLeftY) * -1;
+        float speed = 0;
 
-        if (lb > rb)
-            shooter = lb;
-        else if (lb < rb)
-            shooter = rb * -1;
+        if (joystick->GetRawButton (Joysticks::kButtonA))
+            speed = 1;
 
-        move (shooter, lifter);
+        else if (joystick->GetRawButton (Joysticks::kButtonB))
+            speed = -1;
+
+        move (speed);
     }
 
   protected:
     Shooter() {
-        m_Lifter = new VictorSP (RobotHardware::kLifter);
         m_shooter = new VictorSP (RobotHardware::kShooter);
     }
 
   private:
-    VictorSP* m_lifter;
     VictorSP* m_shooter;
 };
