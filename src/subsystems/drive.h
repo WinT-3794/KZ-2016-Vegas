@@ -37,9 +37,11 @@ class Drive {
         y *= limit;
         y *= inverted ? -1 : 1;
 
-        m_drive->ArcadeDrive (REMOVE_DEADBAND (y),
-                              REMOVE_DEADBAND (x),
-                              true);
+        x = REMOVE_DEADBAND (x);
+        y = REMOVE_DEADBAND (y);
+
+        m_driveA->ArcadeDrive (x, y, true);
+        m_driveB->ArcadeDrive (x, y, true);
     }
 
     void move (Joystick* joystick) {
@@ -51,10 +53,11 @@ class Drive {
 
   protected:
     Drive() {
-        m_drive = new RobotDrive (RobotHardware::kDriveLeft,
-                                  RobotHardware::kDriveRight);
+        m_driveA = new RobotDrive (RobotHardware::kDriveLeftA, RobotHardware::kDriveRightA);
+        m_driveB = new RobotDrive (RobotHardware::kDriveLeftB, RobotHardware::kDriveRightB);
     }
 
   private:
-    RobotDrive* m_drive;
+    RobotDrive* m_driveA;
+    RobotDrive* m_driveB;
 };
